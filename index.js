@@ -18,7 +18,7 @@ app.get('/shopify-products', async (req, res) => {
     );
     res.json(response.data);
   } catch (err) {
-    console.error(err.message);
+    console.error(err.response?.data || err.message);
     res.status(500).json({ error: 'Failed to fetch products from Shopify' });
   }
 });
